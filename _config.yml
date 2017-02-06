@@ -1,0 +1,41 @@
+name: Khan's notes
+description: I'm Khan, nice to meet you.
+
+aboutPage: true
+
+markdown: kramdown
+highlighter: rouge
+
+gems: [jekyll-paginate]
+paginate: 20
+baseurl: /
+domain_name: 'http://khandz.github.io'
+google_analytics: 'UA-90860331-1'
+# disqus: false
+# disqus_shortname: 'your-disqus-shortname'
+
+# Details for the RSS feed generator
+url:            'http://khandz.github.io'
+author:         'khandz'
+repository:     'khandz/khandz.github.io'
+permalink:       /blog/:title/
+
+defaults:
+    -
+        scope:
+            path: "" # empty string for all files
+            type: pages
+        values:
+            layout: default
+    -
+        scope:
+            path: "" # empty string for all files
+            type: posts
+        values:
+            layout: post
+    -
+        scope:
+            path: ""
+            type: drafts
+        values:
+            layout: post

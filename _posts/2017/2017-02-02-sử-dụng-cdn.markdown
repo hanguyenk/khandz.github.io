@@ -1,0 +1,28 @@
+---
+layout: "post"
+title: "Sử dụng CDN"
+description: "Tuning performance 101(2): Sử dụng CDN"
+date: "2017-02-02 20:10"
+tags: "performance performance101 cdn"
+---
+
+**Một hệ thống, khi mới bắt đầu triển khai, các server có thể chỉ cần đặt ở một nơi mà vẫn có thể phục vụ hiệu quả. Tuy nhiên, khi hệ thống có thêm các truy cập từ nhiều nơi khác nhau, việc chỉ có một server như vậy khiến việc phụ trở nên kém hiệu quả.**
+
+![CDN](/assets/images/1486044042270.png)
+
+## CDN là gì ?
+CDN là viết tắt của `Content Delivery Network`, có thể hiểu nôm là một tập hợp các web servers phân tán ở nhiều địa điểm khác nhau và giúp phân phối nội dung đến người dùng một cách hiệu quả hơn. Nhiệm vụ của CDN là lưu bản sao của các nội dung tĩnh bên trong website, sau đó phân tán ra nhiều máy chủ khác nhau trong mạng lưới của mình (các máy chủ trong mạng lưới còn gọi là `Points of Presence`) và các máy chủ đó gửi dữ liệu cho người dùng khi họ yêu cầu.
+
+## Vì sao lại cần sử dụng CDN
+Khi sử dụng CDN, ta có thể thấy các ưu điểm sau:
+
+- **Giảm tải cho máy chủ web**: Một khi đã đưa các nội dung tĩnh lên CDN, máy chủ web không còn phải phục vụ các request liên quan đến những nội dung này nữa, từ đó tiết kiệm được đáng kể băng thông.
+- **Tăng performance**:  CDN trải rộng ở nhiều nơi nên nó giúp việc phân phối nội dung đến người dùng hiệu quả hơn, ví dụ như CDN có thể tự chọn server rảnh gần nhất với người dùng, giúp tốc độ tải nội dung nhanh hơn.
+- **Tiết kiệm chi phí**: Việc tiết kiệm băng thông cho máy chủ web cũng tiết kiệm chi phí vận hành server hơn bởi chi phí cho băng thông của máy chủ lớn hơn chi phí thuê CDN.
+
+## Khi nào nên dùng, khi nào không nên dùng
+Trên thực tế, nhiều khi sử dụng CDN lại không giúp trang web tải nhanh hơn mà có khi lại còn chậm hơn mà một trong những trường hợp hay gặp nhất là máy chủ web quá gần người dùng và CDN không có PoP nào gần hơn. Vậy khi nào thì nên sử dụng CDN ?
+Nên sử dụng CDN khi gặp các vấn đề sau:
+- Hệ thống có nhiều lượt truy cập, tốn băng thông
+- Hệ thống phục vụ người dùng ở nhiều nơi khác nhau
+- Máy chủ web ở xa người dùng
