@@ -8,11 +8,12 @@ tags: "performance performance101"
 
 **Tài nguyên dạng text là các file scripts và stylesheets trong hệ thống. Với việc UI, UX cũng như những xử lý ở phía client ngày càng được chú ý, dung lượng các tài nguyên này cũng lớn hơn trước rất nhiều. Và một trong những cách để tối ưu tốc độ tải trang đó là làm giảm dung lượng cho những tài nguyên đó.**
 
-![Minification](/assets/images/1486437574828.png)
-
 Có hai cách để tối ưu dung lượng cho các tài nguyên dạng text đó là **minify** (thu gọn) và **compress** (nén) file.
 
 ## Minification
+
+![Minification](/assets/images/1486437574828.png)
+
 Để giảm dung lượng một file text, việc đơn giản nhất là **loại bỏ những ký tự không cần thiết như các comments, khoảng trắng và các ký tự xuống dòng**. Các ký tự này có thể rất cần thiết đối với lập trình viên khi phát triển sản phẩm, tuy nhiên, khi đã đóng gói, những ký tự này lại trở nên thừa thãi và làm cho dung lượng file lớn hơn khá nhiều.
 Với các file scripts và stylesheets, ta còn có thể thu gọn code thông minh hơn, phụ thuộc vào nội dung của file, ví dụ như với một đoạn css như sau:
 
@@ -34,12 +35,13 @@ có thể thu gọn thành:
 }
 ```
 Với các file scripts, có rất nhiều kỹ thuật để thu gọn code một cách thông minh:
+
 - Đổi tên hàm, biến, tham số ngắn gọn hơn
 - Loại bỏ những đoạn code không dùng đến
 - **Inlining**: nếu hàm khai báo không dùng lại nhiều, có thể thay thế việc khai báo và gọi hàm bằng thân hàm.
 
 ### Build process
-Quy trình tối ưu code (ở đây chủ yếu là scripts và stylesheets) từ môi trường của lập trình viên sang môi trường khách hàng gọi là **build process**. Quy trình này có thể làm thủ công hoặc tự động, sử dụng một số công cụ như `Grunt`, `Gulp` hay `Webpack`, bao gồm những xử lý thường gặp như:
+**Build process** là quy trình tối ưu code (ở đây là scripts và stylesheets) từ môi trường của lập trình viên sang môi trường khách hàng. Quy trình này có thể làm thủ công hoặc tự động, sử dụng một số công cụ như `Grunt`, `Gulp` hay `Webpack`, bao gồm những xử lý thường gặp như:
 
   - Gộp các file (combines files như đã đề cập trong [Giảm số lượng HTTP request](/blog/giảm-số-lượng-http-request/)
   - Thu gọn file (minify)
